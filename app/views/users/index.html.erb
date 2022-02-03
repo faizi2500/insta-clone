@@ -1,0 +1,9 @@
+<h1>Please upload your image</h1>
+<% @data.each do |user| %>
+  </div>
+    <h1><%=user.fname%></h1>
+    <%= image_tag user.image %>
+  <div>
+<% end %>
+
+<%= button_to "Upload Image", new_user_path, :method => "get" %>
