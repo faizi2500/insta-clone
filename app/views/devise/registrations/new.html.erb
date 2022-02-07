@@ -1,29 +1,46 @@
-<h2>Sign up</h2>
+<div class="login-container border mt-5">
 
+<%= image_tag "insta-written", style: 'width:40vw;margin-top:5%; margin-bottom:0%;' %>
+<br>
+<p class="sign_up_heading">Signup to see photos and videos from your friends.</p>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.text_field :fname, autofocus: true, autocomplete: "fname", placeholder: " ", class: "input-field-login ms-3 px-2 mt-3" %>
+    <%= f.label :fname, "First Name", class: "sign_in_labels ms-3 px-1" %><br />
   </div>
 
   <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <%= f.text_field :lname, autofocus: true, autocomplete: "lname", placeholder: " ", class: "input-field-login ms-3 px-2" %>
+    <%= f.label :lname, "Last Name", class: "sign_in_labels ms-3 px-1" %><br />
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: " ", class: "input-field-login ms-3 px-2" %>
+    <%= f.label :email, "Email", class: "sign_in_labels ms-3 px-1" %><br />
   </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
+  <div class="field">
+    <%= f.password_field :password, autocomplete: "new-password", placeholder: " ", class: "input-field-login ms-3 px-2" %>
+    <%= f.label :password, "Password", class: "sign_in_labels ms-3 px-1" %>
+  </div>
+
+  <div class="field">
+    <%= f.password_field :password_confirmation, autocomplete: "new-password",  placeholder: " ", class: "input-field-login ms-3 px-2" %>
+    <%= f.label :password_confirmation, class: "sign_in_labels ms-3 px-1" %>
+  </div>
+
+  <div class="actions login-btn-div my-3">
+    <%= f.submit "Next", class: "login-btn btn rounded" %>
   </div>
 <% end %>
+</div>
 
-<%= render "devise/shared/links" %>
+<%- if controller_name != 'sessions' %>
+  <div class="new_account_container border">
+    <p class="mt-3"> Already have an account?
+      <span> <%= link_to "Log in", new_session_path(resource_name), class: "forgot_pswd_login" %></span>
+    </p>
+  </div>
+<% end %>

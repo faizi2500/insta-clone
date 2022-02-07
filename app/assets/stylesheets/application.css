@@ -13,3 +13,82 @@
  *= require_tree .
  *= require_self
  */
+
+ .login-container {
+   width: 75%;
+   margin-inline: auto;
+   margin-top: 20%;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+ }
+
+ .input-field-login {
+   width: 70vw;
+   height: 38px;
+   border: 1px solid rgb(190, 187, 187);
+ }
+
+ .input-field-login:focus {
+   outline-color: rgb(163, 162, 162);
+ }
+
+ .sign_in_labels {
+  font-size: 12px;
+  color: #999;
+  transform: translate(0.25rem, -1.95rem);
+  transition: all 0.2s ease-out;
+}
+.input-field-login:focus + .sign_in_labels {
+  color: #111;
+  font-size: 14px;
+  transform: translate(0, -3.75rem);
+}
+
+.input-field-login:focus + .sign_in_labels,
+.input-field-login:not(:placeholder-shown) + .sign_in_labels  {
+  color: #111;
+  transform: translate(0, -3.75rem);
+}
+
+.login-btn-div {
+  display: flex;
+  align-items: center;
+}
+
+.login-btn {
+  width: 80%;
+  margin: auto;
+  background: radial-gradient(circle at 15% 157%, #405DE6, #706bd3);
+  color: white
+}
+
+.remember-me-login {
+  text-align: center;
+}
+
+.forgot-pswd-container {
+  text-align: center;
+}
+
+.forgot_pswd_login {
+  text-decoration: none;
+  color: rgb(96, 154, 207);
+}
+
+.new_account_container {
+  width: 75%;
+  margin-inline: auto;
+  margin-top: 5%;
+  padding-block: 1%;
+  display: flex;
+  justify-content: center;
+}
+
+.sign_up_heading {
+  width: 80%;
+  text-align: center;
+  font-size: 1.25rem;
+  color: gray;
+  font-weight: bolder;
+}

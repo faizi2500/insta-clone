@@ -1,12 +1,13 @@
 class UsersController < ApplicationController
-
   def index
-    @data = User.all
+    if user_signed_in?
+      @data = User.all
+    else
+      redirect_to new_user_session_path
+    end
   end
 
-  def new
-
-  end
+  def new; end
 
   def create
     @user = User.new(user_params)
@@ -19,7 +20,7 @@ class UsersController < ApplicationController
 
   private
 
-    def user_params
-      params.permit(:fname, :image)
-    end
+  def user_params
+    params.permit(:fname, :image)
+  end
 end
